@@ -11,7 +11,7 @@ def diff(file_list: List[str]) -> None:
     dest_file = os.path.join(os.path.expanduser('~'), file_list[1].strip())
     
     try:
-        with open(local_file, 'r') as file1, open(dest_file, 'r') as file2:
+        with open(dest_file, 'r') as file1, open(local_file, 'r') as file2:
             diff = difflib.unified_diff(
                 file1.readlines(),
                 file2.readlines(),
