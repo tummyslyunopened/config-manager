@@ -103,9 +103,9 @@ def forcecopy(source: str, destination: str) -> NoReturn:
         print(f"Error: Cannot copy {'directory' if source_is_dir else 'file'} to {'directory' if dest_is_dir else 'file'}")
         raise ValueError("Source and destination types do not match")
 
-    if not os.path.exists(os.path.dirname(destination)):
-        print(f"Error: Destination parent directory does not exist: {os.path.dirname(destination)}")
-        raise FileNotFoundError(f"Destination parent directory not found: {os.path.dirname(destination)}")
+    dest_parent = os.path.dirname(destination)
+    if not os.path.exists(dest_parent):
+        os.makedirs(dest_parent)
 
     try:
         if source_is_dir:
