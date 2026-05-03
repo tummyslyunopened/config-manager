@@ -1,0 +1,12 @@
+# Application data
+.data/
+
+# Secrets
+.env
+.env.*
+
+# Sensitive data files
+*.csv
+*.sqlite
+*.sqlite3
+*.db
